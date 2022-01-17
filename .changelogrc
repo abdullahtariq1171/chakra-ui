@@ -1,35 +1,41 @@
-## 06-01-2022
+## 17-01-2022
 
-**Modal** `v1.10.4`
+**Media Query** `v1.2.4`
 
-- Update `DrawerProps` type to include `ThemingProps` for the Drawer component
+- Update typings for useBreakpointValue parameter
 
-**Avatar** `v1.3.3`
+**Cli** `v1.7.1`
 
-- Added the prop `srcSet` to the `<Avatar />` and `<AvatarImage />` components to allow responsive image sources.
-  [Read more on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset)
+- Update README to reflect the change of the default `--out` path to `node_modules/@chakra-ui/styled-system/dist/declarations/src/theming.types.d.ts`
 
-**Layout** `v1.7.1`
+**Theme** `v1.12.4`
 
-- ### Add support for `area` prop on `GridItem`
+- refactoring(theme): Simplify exports
 
-Deprecated `area` prop on `Grid` and added support for `area` prop to be used
-with `GridItem` instead. This allows for usage of `GridItem`'s that have named
-template areas to be used in conjunction with a `Grid` that has a defined
-template area.
+**Slider** `v1.5.4`
 
-```jsx live=false
-<Grid templateAreas='"one two three"'>
-   <GridItem area='one'>one</Grid>
-   <GridItem area='two'>two</Grid>
-   <GridItem area='three'>three</Grid>
-</Grid>
-```
+- fix a minor edge-case for calculating the `index` in use-range-slider
 
-**Storybook Addon** `v1.0.1`
+**Button** `v1.5.3`
 
-- Added dependency to @chakra-ui/icons
+- Fixed ThemingProps typings for ButtonGroup
 
-**System** `v1.9.1`
+**Theme Tools** `v1.3.2`
 
-- Fixed an TypeScript issue where the ThemingProps type was too strict
+- Allow style function types to be part of `StyleConfig` and `MultiStyleConfig`
+  types to reflect the possible usage of style functions instead of style objects.
+
+**Styled System** `v1.17.0`
+
+- Updated the `_placeholderShown` selector
+- Export TypeScript types ResponsiveObject and ResponsiveArray
+
+**Checkbox** `v1.6.3`
+
+- Added a `CheckboxState` type to the `useCheckbox` hook to improve usability and
+  documentation
+
+**System** `v1.9.2`
+
+- Updated type `ThemingProps` to allow string values for the props `variant` and
+  `size` even on components which are not in the default theme.
