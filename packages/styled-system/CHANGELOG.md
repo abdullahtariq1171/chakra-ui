@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.17.0
+
+### Minor Changes
+
+- [#5355](https://github.com/chakra-ui/chakra-ui/pull/5355)
+  [`bb7eb18da`](https://github.com/chakra-ui/chakra-ui/commit/bb7eb18daa015efee56d55519c2ce727d5bb776a)
+  Thanks [@TimKolberger](https://github.com/TimKolberger)! - Export TypeScript
+  types ResponsiveObject and ResponsiveArray
+
+### Patch Changes
+
+- [#5359](https://github.com/chakra-ui/chakra-ui/pull/5359)
+  [`3b4117781`](https://github.com/chakra-ui/chakra-ui/commit/3b41177812c927c0ee37c7c0006a09f9ca031108)
+  Thanks [@TimKolberger](https://github.com/TimKolberger)! - Updated the
+  `_placeholderShown` selector
+
 ## 1.16.0
 
 ### Minor Changes

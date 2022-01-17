@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.12.4
+
+### Patch Changes
+
+- [#5371](https://github.com/chakra-ui/chakra-ui/pull/5371)
+  [`c393dd268`](https://github.com/chakra-ui/chakra-ui/commit/c393dd26808a06a8a6bd19839f4b2f1995157315)
+  Thanks [@selbekk](https://github.com/selbekk)! - refactoring(theme): Simplify
+  exports
+
+- Updated dependencies
+  [[`ebf1d98be`](https://github.com/chakra-ui/chakra-ui/commit/ebf1d98be17128e62b0ee7867da3698781a5974d)]:
+  - @chakra-ui/theme-tools@1.3.2
+
 ## 1.12.3
 
 ### Patch Changes

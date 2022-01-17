@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.3.2
+
+### Patch Changes
+
+- [#5241](https://github.com/chakra-ui/chakra-ui/pull/5241)
+  [`ebf1d98be`](https://github.com/chakra-ui/chakra-ui/commit/ebf1d98be17128e62b0ee7867da3698781a5974d)
+  Thanks [@timonweber](https://github.com/timonweber)! - Allow style function
+  types to be part of `StyleConfig` and `MultiStyleConfig` types to reflect the
+  possible usage of style functions instead of style objects.
+
 ## 1.3.1
 
 ### Patch Changes

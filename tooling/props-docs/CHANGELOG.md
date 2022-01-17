@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.0.44
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3b4117781`](https://github.com/chakra-ui/chakra-ui/commit/3b41177812c927c0ee37c7c0006a09f9ca031108),
+  [`bb7eb18da`](https://github.com/chakra-ui/chakra-ui/commit/bb7eb18daa015efee56d55519c2ce727d5bb776a)]:
+  - @chakra-ui/styled-system@1.17.0
+  - @chakra-ui/react@1.7.6
+
 ## 1.0.43
 
 ### Patch Changes

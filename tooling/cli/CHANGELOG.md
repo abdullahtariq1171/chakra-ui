@@ -1,5 +1,15 @@
 # @chakra-ui/cli
 
+## 1.7.1
+
+### Patch Changes
+
+- [#5372](https://github.com/chakra-ui/chakra-ui/pull/5372)
+  [`472612e7a`](https://github.com/chakra-ui/chakra-ui/commit/472612e7aea64de64c6744365f7d5c6a97bcc438)
+  Thanks [@selbekk](https://github.com/selbekk)! - Update README to reflect the
+  change of the default `--out` path to
+  `node_modules/@chakra-ui/styled-system/dist/declarations/src/theming.types.d.ts`
+
 ## 1.7.0
 
 ### Minor Changes
