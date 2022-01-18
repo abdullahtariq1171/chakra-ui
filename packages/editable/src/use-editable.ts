@@ -12,7 +12,6 @@ import {
   focus,
   getRelatedTarget,
   isEmpty,
-  normalizeEventKey,
 } from "@chakra-ui/utils"
 import React, { useCallback, useRef, useState } from "react"
 
@@ -176,8 +175,6 @@ export function useEditable(props: UseEditableProps = {}) {
 
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
-      const eventKey = normalizeEventKey(event)
-
       const keyMap: EventKeyMap = {
         Escape: onCancel,
         Enter: (event) => {
@@ -187,7 +184,7 @@ export function useEditable(props: UseEditableProps = {}) {
         },
       }
 
-      const action = keyMap[eventKey]
+      const action = keyMap[event.key]
 
       if (action) {
         event.preventDefault()

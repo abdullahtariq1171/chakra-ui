@@ -32,7 +32,6 @@ import {
   isHTMLElement,
   isString,
   LazyBehavior,
-  normalizeEventKey,
   removeItem,
 } from "@chakra-ui/utils"
 import * as React from "react"
@@ -322,14 +321,13 @@ export function useMenuButton(
 
   const onKeyDown = React.useCallback(
     (event: React.KeyboardEvent) => {
-      const eventKey = normalizeEventKey(event)
       const keyMap: EventKeyMap = {
         Enter: openAndFocusFirstItem,
         ArrowDown: openAndFocusFirstItem,
         ArrowUp: openAndFocusLastItem,
       }
 
-      const action = keyMap[eventKey]
+      const action = keyMap[event.key]
 
       if (action) {
         event.preventDefault()
@@ -411,8 +409,6 @@ export function useMenuList(
 
   const onKeyDown = React.useCallback(
     (event: React.KeyboardEvent) => {
-      const eventKey = normalizeEventKey(event)
-
       const keyMap: EventKeyMap = {
         Tab: (event) => event.preventDefault(),
         Escape: onClose,
@@ -426,7 +422,7 @@ export function useMenuList(
         },
       }
 
-      const fn = keyMap[eventKey]
+      const fn = keyMap[event.key]
 
       if (fn) {
         event.preventDefault()

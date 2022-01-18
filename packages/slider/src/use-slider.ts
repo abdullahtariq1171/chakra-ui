@@ -17,7 +17,6 @@ import {
   dataAttr,
   focus,
   getBox,
-  normalizeEventKey,
   percentToValue,
   roundValueToStep,
   valueToPercent,
@@ -275,7 +274,6 @@ export function useSlider(props: UseSliderProps) {
    */
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
-      const eventKey = normalizeEventKey(event)
       const keyMap: EventKeyMap = {
         ArrowRight: () => actions.stepUp(),
         ArrowUp: () => actions.stepUp(),
@@ -287,7 +285,7 @@ export function useSlider(props: UseSliderProps) {
         End: () => constrain(max),
       }
 
-      const action = keyMap[eventKey]
+      const action = keyMap[event.key]
 
       if (action) {
         event.preventDefault()
@@ -314,20 +312,16 @@ export function useSlider(props: UseSliderProps) {
   /**
    * Compute styles for all component parts.
    */
-  const {
-    getThumbStyle,
-    rootStyle,
-    trackStyle,
-    innerTrackStyle,
-  } = useMemo(() => {
-    const thumbRect = thumbBoxModel?.borderBox ?? { width: 0, height: 0 }
-    return getStyles({
-      isReversed,
-      orientation,
-      thumbRects: [thumbRect],
-      thumbPercents: [thumbPercent],
-    })
-  }, [isReversed, orientation, thumbBoxModel?.borderBox, thumbPercent])
+  const { getThumbStyle, rootStyle, trackStyle, innerTrackStyle } =
+    useMemo(() => {
+      const thumbRect = thumbBoxModel?.borderBox ?? { width: 0, height: 0 }
+      return getStyles({
+        isReversed,
+        orientation,
+        thumbRects: [thumbRect],
+        thumbPercents: [thumbPercent],
+      })
+    }, [isReversed, orientation, thumbBoxModel?.borderBox, thumbPercent])
 
   const focusThumb = useCallback(() => {
     if (thumbRef.current && focusThumbOnChange) {

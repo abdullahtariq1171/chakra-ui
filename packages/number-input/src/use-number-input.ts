@@ -14,7 +14,6 @@ import {
   maxSafeInteger,
   minSafeInteger,
   StringOrNumber,
-  normalizeEventKey,
 } from "@chakra-ui/utils"
 import { mergeRefs, PropGetter, EventKeyMap } from "@chakra-ui/react-utils"
 import * as React from "react"
@@ -231,8 +230,6 @@ export function useNumberInput(props: UseNumberInputProps = {}) {
        */
       const stepFactor = getStepFactor(event) * stepProp
 
-      const eventKey = normalizeEventKey(event)
-
       const keyMap: EventKeyMap = {
         ArrowUp: () => increment(stepFactor),
         ArrowDown: () => decrement(stepFactor),
@@ -240,7 +237,7 @@ export function useNumberInput(props: UseNumberInputProps = {}) {
         End: () => updateFn(max),
       }
 
-      const action = keyMap[eventKey]
+      const action = keyMap[event.key]
 
       if (action) {
         event.preventDefault()

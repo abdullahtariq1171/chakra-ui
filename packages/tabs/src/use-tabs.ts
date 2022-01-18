@@ -18,7 +18,6 @@ import {
   focus,
   isUndefined,
   LazyBehavior,
-  normalizeEventKey,
 } from "@chakra-ui/utils"
 import * as React from "react"
 
@@ -220,8 +219,6 @@ export function useTabList<P extends UseTabListProps>(props: P) {
       const isHorizontal = orientation === "horizontal"
       const isVertical = orientation === "vertical"
 
-      const eventKey = normalizeEventKey(event)
-
       const ArrowStart = direction === "ltr" ? "ArrowLeft" : "ArrowRight"
       const ArrowEnd = direction === "ltr" ? "ArrowRight" : "ArrowLeft"
 
@@ -234,7 +231,7 @@ export function useTabList<P extends UseTabListProps>(props: P) {
         End: lastTab,
       }
 
-      const action = keyMap[eventKey]
+      const action = keyMap[event.key]
 
       if (action) {
         event.preventDefault()
@@ -277,13 +274,8 @@ export interface UseTabProps
 export function useTab<P extends UseTabProps>(props: P) {
   const { isDisabled, isFocusable, ...htmlProps } = props
 
-  const {
-    setSelectedIndex,
-    isManual,
-    id,
-    setFocusedIndex,
-    selectedIndex,
-  } = useTabsContext()
+  const { setSelectedIndex, isManual, id, setFocusedIndex, selectedIndex } =
+    useTabsContext()
 
   const { index, register } = useTabsDescendant({
     disabled: isDisabled && !isFocusable,

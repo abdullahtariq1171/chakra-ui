@@ -15,7 +15,6 @@ import {
   clampValue,
   dataAttr,
   focus,
-  normalizeEventKey,
   percentToValue,
   roundValueToStep,
   valueToPercent,
@@ -280,7 +279,6 @@ export function useRangeSlider(props: UseRangeSliderProps) {
    */
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
-      const eventKey = normalizeEventKey(event)
       const keyMap: EventKeyMap = {
         ArrowRight: () => actions.stepUp(activeIndex),
         ArrowUp: () => actions.stepUp(activeIndex),
@@ -298,7 +296,7 @@ export function useRangeSlider(props: UseRangeSliderProps) {
         },
       }
 
-      const action = keyMap[eventKey]
+      const action = keyMap[event.key]
 
       if (action) {
         event.preventDefault()

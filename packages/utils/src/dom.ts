@@ -29,7 +29,7 @@ export function getOwnerDocument(node?: Element | null): Document {
 }
 
 export function getEventWindow(event: Event): typeof globalThis {
-  return (((event as UIEvent).view ?? window) as unknown) as typeof globalThis
+  return ((event as UIEvent).view ?? window) as unknown as typeof globalThis
 }
 
 export function canUseDOM(): boolean {
@@ -70,23 +70,6 @@ export function addDomEvent(
   return () => {
     target.removeEventListener(eventName, handler, options)
   }
-}
-
-/**
- * Get the normalized event key across all browsers
- * @param event keyboard event
- */
-export function normalizeEventKey(
-  event: Pick<KeyboardEvent, "key" | "keyCode">,
-) {
-  const { key, keyCode } = event
-
-  const isArrowKey =
-    keyCode >= 37 && keyCode <= 40 && key.indexOf("Arrow") !== 0
-
-  const eventKey = isArrowKey ? `Arrow${key}` : key
-
-  return eventKey as EventKeys
 }
 
 export function getRelatedTarget(

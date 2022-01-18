@@ -16,7 +16,6 @@ import {
   focus,
   isArray,
   isUndefined,
-  normalizeEventKey,
   removeItem,
   warn,
 } from "@chakra-ui/utils"
@@ -166,14 +165,12 @@ interface AccordionContext
   reduceMotion: boolean
 }
 
-export const [
-  AccordionProvider,
-  useAccordionContext,
-] = createContext<AccordionContext>({
-  name: "AccordionContext",
-  errorMessage:
-    "useAccordionContext: `context` is undefined. Seems you forgot to wrap the accordion components in `<Accordion />`",
-})
+export const [AccordionProvider, useAccordionContext] =
+  createContext<AccordionContext>({
+    name: "AccordionContext",
+    errorMessage:
+      "useAccordionContext: `context` is undefined. Seems you forgot to wrap the accordion components in `<Accordion />`",
+  })
 
 /* -------------------------------------------------------------------------------------------------
  * Hook for a single accordion item
@@ -248,8 +245,6 @@ export function useAccordionItem(props: UseAccordionItemProps) {
    */
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
-      const eventKey = normalizeEventKey(event)
-
       const keyMap: EventKeyMap = {
         ArrowDown: () => {
           const next = descendants.nextEnabled(index)
@@ -269,7 +264,7 @@ export function useAccordionItem(props: UseAccordionItemProps) {
         },
       }
 
-      const action = keyMap[eventKey]
+      const action = keyMap[event.key]
 
       if (action) {
         event.preventDefault()

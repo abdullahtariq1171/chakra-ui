@@ -4,7 +4,6 @@ import {
   getEventWindow,
   getOwnerDocument,
   getOwnerWindow,
-  normalizeEventKey,
 } from "../src"
 
 test("should get window object", () => {
@@ -28,9 +27,4 @@ test("should get document object", () => {
 test("should get window object from event", () => {
   const event = new UIEvent("change", { view: window })
   expect(getEventWindow(event)).toBe(window)
-})
-
-test("should normalize keyboard events", () => {
-  const keyboardEvent: any = { key: "Left", keyCode: 38 }
-  expect(normalizeEventKey(keyboardEvent)).toBe("ArrowLeft")
 })
